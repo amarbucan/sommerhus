@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Søren Fischers sommerhustur 2025</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .weekend-options {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .weekend-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .weekend-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .weekend-option input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        
+        .weekend-option label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .votes-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .votes-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .vote-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .vote-person {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .vote-weekends {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .summary-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 8px;
+            border: 1px solid #b3d9ff;
+        }
+        
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+        
+        .weekend-count {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #d0e8ff;
+        }
+        
+        .weekend-count:last-child {
+            border-bottom: none;
+        }
+        
+        .count-number {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏖️ Søren Fischers sommerhustur 2025</h1>
+        <p class="subtitle">Stem på hvilke weekender du kan deltage</p>
+        
+        <form id="voteForm">
+            <div class="form-section">
+                <label for="name">Dit navn:</label>
+                <input type="text" id="name" name="name" required placeholder="Indtast dit navn...">
+            </div>
+            
+            <div class="form-section">
+                <label>வணக்கம் (Vanakkam). Vælg de weekender du kan deltage. <span class="emoji">📅</span></label>
+                <div class="weekend-options">
+                    <div class="weekend-option">
+                        <input type="checkbox" id="weekend1" name="weekends" value="1-3 august">
+                        <label for="weekend1">Weekend 1: Fredag 1. august - Søndag 3. august</label>
+                    </div>
+                    <div class="weekend-option">
+                        <input type="checkbox" id="weekend2" name="weekends" value="8-10 august">
+                        <label for="weekend2">Weekend 2: Fredag 8. august - Søndag 10. august</label>
+                    </div>
+                    <div class="weekend-option">
+                        <input type="checkbox" id="weekend3" name="weekends" value="15-17 august">
+                        <label for="weekend3">Weekend 3: Fredag 15. august - Søndag 17. august</label>
+                    </div>
+                    <div class="weekend-option">
+                        <input type="checkbox" id="weekend4" name="weekends" value="22-24 august">
+                        <label for="weekend4">Weekend 4: Fredag 22. august - Søndag 24. august</label>
+                    </div>
+                    <div class="weekend-option">
+                        <input type="checkbox" id="weekend5" name="weekends" value="29-31 august">
+                        <label for="weekend5">Weekend 5: Fredag 29. august - Søndag 31. august</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Stem nu! 🗳️</button>
+        </form>
+        
+        <div class="votes-section" id="votesSection">
+            <h3 class="votes-title">🏆 Stemmer indtil nu</h3>
+            <div id="votesList"></div>
+            
+            <div class="summary-section" id="summarySection">
+                <div class="summary-title">📊 Sammenfatning - Antal stemmer per weekend:</div>
+                <div id="weekendSummary"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data gemmes i browserens lokale storage
+        let votes = [];
+        
+        // Initialisering af weekend-tællere
+        const weekendLabels = {
+            '1-3 august': 'Weekend 1 (1-3 aug)',
+            '8-10 august': 'Weekend 2 (8-10 aug)', 
+            '15-17 august': 'Weekend 3 (15-17 aug)',
+            '22-24 august': 'Weekend 4 (22-24 aug)',
+            '29-31 august': 'Weekend 5 (29-31 aug)'
+        };
+        
+        // Indlæs gemte stemmer fra localStorage
+        function loadVotes() {
+            const savedVotes = localStorage.getItem('sommerhus_votes_2025');
+            if (savedVotes) {
+                votes = JSON.parse(savedVotes);
+            }
+        }
+        
+        // Gem stemmer til localStorage
+        function saveVotes() {
+            localStorage.setItem('sommerhus_votes_2025', JSON.stringify(votes));
+        }
+        
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const checkedWeekends = Array.from(document.querySelectorAll('input[name="weekends"]:checked'))
+                .map(cb => cb.value);
+            
+            if (!name) {
+                alert('Indtast venligst dit navn!');
+                return;
+            }
+            
+            if (checkedWeekends.length === 0) {
+                alert('Vælg mindst én weekend!');
+                return;
+            }
+            
+            // Tjek om personen allerede har stemt
+            const existingVoteIndex = votes.findIndex(vote => vote.name.toLowerCase() === name.toLowerCase());
+            
+            if (existingVoteIndex !== -1) {
+                // Opdater eksisterende stemme
+                votes[existingVoteIndex].weekends = checkedWeekends;
+                alert(`${name}, din stemme er blevet opdateret! 🎉`);
+            } else {
+                // Tilføj ny stemme
+                votes.push({
+                    name: name,
+                    weekends: checkedWeekends,
+                    timestamp: new Date()
+                });
+                alert(`Tak for din stemme, ${name}! 🎉`);
+            }
+            
+            // Gem stemmer
+            saveVotes();
+            
+            // Nulstil formularen
+            document.getElementById('voteForm').reset();
+            
+            // Opdater visning
+            updateVotesDisplay();
+        });
+        
+        function updateVotesDisplay() {
+            const votesList = document.getElementById('votesList');
+            const weekendSummary = document.getElementById('weekendSummary');
+            
+            // Vis individuelle stemmer
+            if (votes.length === 0) {
+                votesList.innerHTML = '<p style="text-align: center; color: #666;">Ingen stemmer endnu... 🤔</p>';
+            } else {
+                votesList.innerHTML = votes.map(vote => `
+                    <div class="vote-item">
+                        <span class="vote-person">${vote.name}</span>
+                        <span class="vote-weekends">${vote.weekends.length} weekend${vote.weekends.length !== 1 ? 'er' : ''}</span>
+                    </div>
+                    <div style="font-size: 0.8em; color: #666; margin-left: 10px; margin-bottom: 10px;">
+                        Kan: ${vote.weekends.map(w => weekendLabels[w]).join(', ')}
+                    </div>
+                `).join('');
+            }
+            
+            // Beregn og vis sammenfatning
+            const weekendCounts = {};
+            Object.keys(weekendLabels).forEach(weekend => {
+                weekendCounts[weekend] = votes.filter(vote => 
+                    vote.weekends.includes(weekend)
+                ).length;
+            });
+            
+            // Sorter weekender efter antal stemmer (højest først)
+            const sortedWeekends = Object.entries(weekendCounts)
+                .sort(([,a], [,b]) => b - a);
+            
+            weekendSummary.innerHTML = sortedWeekends.map(([weekend, count]) => `
+                <div class="weekend-count">
+                    <span>${weekendLabels[weekend]}</span>
+                    <span class="count-number">${count} ${count !== 1 ? 'stemmer' : 'stemme'} ${count > 0 ? '✅' : '❌'}</span>
+                </div>
+            `).join('');
+        }
+        
+        // Klik på weekend-option for at toggle checkbox
+        document.querySelectorAll('.weekend-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                if (e.target.type !== 'checkbox') {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                }
+            });
+        });
+        
+        // Initial display
+        loadVotes(); // Indlæs gemte stemmer først
+        updateVotesDisplay();
+    </script>
+</body>
+</html>
